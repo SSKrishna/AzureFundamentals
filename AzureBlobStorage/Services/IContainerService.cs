@@ -2,7 +2,7 @@
 {
     public interface IContainerService
     {
-        Task<List<string>> GetAllContainerAbdBlobs();
+        Task<List<string>> GetAllContainerAndBlobs();
 
         Task<List<string>> GetAllContainer();
 

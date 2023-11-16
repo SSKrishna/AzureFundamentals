@@ -6,8 +6,8 @@
 
         Task<string> GetBlob(string name, string containerName);
 
-        Task UploadBlob(string name,IFormFile file,string containerName);
+        Task<bool> UploadBlob(string name,IFormFile file,string containerName);
 
-        Task DeleteBlob(string name, string containerName);
+        Task<bool> DeleteBlob(string name, string containerName);
     }
 }
