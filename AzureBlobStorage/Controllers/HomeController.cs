@@ -9,16 +9,23 @@ namespace AzureBlobStorage.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IContainerService _containerService;
+        public readonly IBlobService _blobService;
 
-        public HomeController(ILogger<HomeController> logger,IContainerService containerService)
+        public HomeController(ILogger<HomeController> logger,IContainerService containerService, IBlobService blobService)
         {
             _containerService = containerService;
             _logger = logger;
+            _blobService = blobService;
         }
 
         public async Task<IActionResult> Index()
         {
             return View(await _containerService.GetAllContainerAndBlobs());
+        }
+
+        public async Task<IActionResult> Images()
+        {
+            return View(await _blobService.GetAllBlobsWithUri("privatecontainer"));
         }
 
         public IActionResult Privacy()

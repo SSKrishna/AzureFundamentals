@@ -1,4 +1,7 @@
-﻿namespace AzureBlobStorage.Services
+﻿using AzureBlobStorage.Models;
+using System.Reflection.Metadata;
+
+namespace AzureBlobStorage.Services
 {
     public interface IBlobService
     {
@@ -6,8 +9,10 @@
 
         Task<string> GetBlob(string name, string containerName);
 
-        Task<bool> UploadBlob(string name,IFormFile file,string containerName);
+        Task<bool> UploadBlob(string name,IFormFile file,string containerName, Models.Blob blob);
 
         Task<bool> DeleteBlob(string name, string containerName);
+
+        Task<List<Models.Blob>> GetAllBlobsWithUri(string containerName);
     }
 }
