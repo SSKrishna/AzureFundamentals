@@ -5,13 +5,13 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobStorage", "AzureBlobStorage\AzureBlobStorage.csproj", "{4EE5B30F-ACB3-4169-834D-7BF65C661D4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionWeb", "AzureFunctionWeb\AzureFunctionWeb.csproj", "{7ABDA3D3-748C-4472-A538-E8929809EAFB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureBlob", "AzureBlob", "{371C9582-7DD9-4181-84DE-2A4C6E44C286}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureFunction", "AzureFunction", "{23C48C82-16A4-41A0-B8AC-A26E956B0FCE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunction", "AzureFunction\AzureFunction.csproj", "{A2DC203F-EA32-4204-B043-24D32120C0BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction", "AzureFunction\AzureFunction.csproj", "{A2DC203F-EA32-4204-B043-24D32120C0BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionWeb", "AzureFunctionWeb\AzureFunctionWeb.csproj", "{D40685EF-268E-45E8-9F8F-4E422BC1541F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,22 +23,22 @@ Global
 		{4EE5B30F-ACB3-4169-834D-7BF65C661D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EE5B30F-ACB3-4169-834D-7BF65C661D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EE5B30F-ACB3-4169-834D-7BF65C661D4B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7ABDA3D3-748C-4472-A538-E8929809EAFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ABDA3D3-748C-4472-A538-E8929809EAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7ABDA3D3-748C-4472-A538-E8929809EAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7ABDA3D3-748C-4472-A538-E8929809EAFB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A2DC203F-EA32-4204-B043-24D32120C0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A2DC203F-EA32-4204-B043-24D32120C0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A2DC203F-EA32-4204-B043-24D32120C0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A2DC203F-EA32-4204-B043-24D32120C0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D40685EF-268E-45E8-9F8F-4E422BC1541F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D40685EF-268E-45E8-9F8F-4E422BC1541F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D40685EF-268E-45E8-9F8F-4E422BC1541F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D40685EF-268E-45E8-9F8F-4E422BC1541F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4EE5B30F-ACB3-4169-834D-7BF65C661D4B} = {371C9582-7DD9-4181-84DE-2A4C6E44C286}
-		{7ABDA3D3-748C-4472-A538-E8929809EAFB} = {23C48C82-16A4-41A0-B8AC-A26E956B0FCE}
 		{A2DC203F-EA32-4204-B043-24D32120C0BA} = {23C48C82-16A4-41A0-B8AC-A26E956B0FCE}
+		{D40685EF-268E-45E8-9F8F-4E422BC1541F} = {23C48C82-16A4-41A0-B8AC-A26E956B0FCE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEA8110F-5611-4AF8-8E40-00058A50193A}

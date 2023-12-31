@@ -7,6 +7,7 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using AzureFunction.Models;
 
 namespace AzureFunction
 {
@@ -15,19 +16,18 @@ namespace AzureFunction
         [FunctionName("OnSalesUploadWriteToQueue")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+            [Queue("SalesRequestInBound",Connection ="AzureWebJobsStorage")] IAsyncCollector<SalesRequest> salesRequestQueue,
             ILogger log)
         {
-            log.LogInformation("C# HTTP trigger function processed a request.");
+            log.LogInformation("Sales Request received by OnSalesUploadWriteToQueue function");
 
-            string name = req.Query["name"];
+
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            dynamic data = JsonConvert.DeserializeObject(requestBody);
-            name = name ?? data?.name;
+            SalesRequest data = JsonConvert.DeserializeObject<SalesRequest>(requestBody);
+            await salesRequestQueue.AddAsync(data);
 
-            string responseMessage = string.IsNullOrEmpty(name)
-                ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+            string responseMessage = "Sales Request has been received for " + data.Name;
 
             return new OkObjectResult(responseMessage);
         }
