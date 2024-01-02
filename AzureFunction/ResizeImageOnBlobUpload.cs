@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using Azure.Storage.Queues.Models;
+using AzureFunction.Data;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
@@ -11,7 +13,9 @@ using SixLabors.ImageSharp.Processing;
 namespace AzureFunction
 {
     public class ResizeImageOnBlobUpload
-    {
+    {     
+
+
         [FunctionName("ResizeImageOnBlobUpload")]
         public void Run([BlobTrigger("functionsalesrep/{name}", Connection = "AzureWebJobsStorage")]Stream myBlob,
             [Blob("functionsalesrep-sm/{name}",FileAccess.Write)] Stream myBlobOutput,
