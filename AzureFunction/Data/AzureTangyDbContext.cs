@@ -11,6 +11,8 @@ namespace AzureFunction.Data
         }
 
         public DbSet<SalesRequest> SalesRequests { get; set; }
+        public DbSet<GroceryItem> GroceryItems { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -18,6 +20,12 @@ namespace AzureFunction.Data
 
             modelBuilder.Entity<SalesRequest>(
                 entity => { entity.HasKey(c => c.Id);
+                });
+
+            modelBuilder.Entity<GroceryItem>(
+                entity =>
+                {
+                    entity.HasKey(c => c.Id);
                 });
         }
     }

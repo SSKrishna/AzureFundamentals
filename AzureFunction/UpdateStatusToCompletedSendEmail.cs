@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using AzureFunction.Data;
 using AzureFunction.Models;
 using Microsoft.Azure.WebJobs;
@@ -19,7 +20,7 @@ namespace AzureFunction
         }
 
         [FunctionName("UpdateStatusToCompletedSendEmail")]
-        public void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer,
+        public async Task Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer,
             [SendGrid(ApiKey = "CustomSendGridAppSettingKey")] IAsyncCollector<SendGridMessage> messageCollector,ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
@@ -31,6 +32,15 @@ namespace AzureFunction
             }
             _db.UpdateRange(salesRequests);
             _db.SaveChanges();
+
+            //Commented email sending code since the config value to send meails is not working right now
+            //var message = new SendGridMessage();
+            //message.AddTo("gunturu.siddhartha@gmail.com");
+            //message.AddContent("text/html", $"Process completed for {salesRequests.Count()} records.");
+            //message.SetFrom(new EmailAddress("donotreply@gmail.com"));
+            //message.SetSubject("Azure Tangy Processing Successful");
+            //await messageCollector.AddAsync(message);
+
         }
     }
 }
