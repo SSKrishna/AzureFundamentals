@@ -1,0 +1,10 @@
+{
+  "IsEncrypted": false,
+
+  "Values": {
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=azuredotnetmastery12;AccountKey=4OzB0q7aNdIjwYrlO60O/3vJJe5R/+hR6E5eIPzmqpxJTJKi+xTMO4cbCaHY4EMOtw8NoUghgCzf+ASt6ideqw==;EndpointSuffix=core.windows.net",
+    //"AzureSqlDatabase": "Server=tcp:dotnetmasterysql.database.windows.net,1433;Initial Catalog=dotnetmastery-SQL;Persist Security Info=False;User ID=admin-user;Password=Test@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
+    "AzureSqlDatabase": "Server=localhost;Database=AzureDotnetMasterySQL;Trusted_Connection=True",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+  }
+}
