@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureFunction", "AzureFunct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunction", "AzureFunction\AzureFunction.csproj", "{A2DC203F-EA32-4204-B043-24D32120C0BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionWeb", "AzureFunctionWeb\AzureFunctionWeb.csproj", "{D40685EF-268E-45E8-9F8F-4E422BC1541F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureFunctionWeb", "AzureFunctionWeb\AzureFunctionWeb.csproj", "{D40685EF-268E-45E8-9F8F-4E422BC1541F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureSpookyLogicApp", "AzureSpookyLogicApp\AzureSpookyLogicApp.csproj", "{3CE59158-802A-4043-A974-198AC22FB7A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureSpookyLogicApp", "AzureSpookyLogicApp\AzureSpookyLogicApp.csproj", "{3CE59158-802A-4043-A974-198AC22FB7A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureLogicApp", "AzureLogicApp", "{C7427B05-71C4-4931-B94E-11F807A5B557}"
 EndProject

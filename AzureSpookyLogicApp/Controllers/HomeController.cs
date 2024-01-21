@@ -1,4 +1,6 @@
-﻿using AzureSpookyLogicApp.Models;
+﻿using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using AzureSpookyLogicApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Text;
@@ -11,10 +13,12 @@ namespace AzureSpookyLogicApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         static readonly HttpClient client = new HttpClient();
+        private readonly BlobServiceClient _blobClient;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, BlobServiceClient blobClient)
         {
             _logger = logger;
+            _blobClient = blobClient;
         }
 
         public IActionResult Index()
@@ -23,7 +27,7 @@ namespace AzureSpookyLogicApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(SpookyRequest spookyRequest)
+        public async Task<IActionResult> Index(SpookyRequest spookyRequest,IFormFile file)
         {
             spookyRequest.Id = Guid.NewGuid().ToString();
             var JsonContent = JsonSerializer.Serialize(spookyRequest);
@@ -31,6 +35,19 @@ namespace AzureSpookyLogicApp.Controllers
             {
                 HttpResponseMessage httpResponse = await client.PostAsync("https://prod-69.eastus.logic.azure.com:443/workflows/139489ff1d5e4e6484356b562639dd79/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=AicGKZazhULZHt0pizJNYd8cvdzDmJE0jnz5rWiSRLQ", content);
             }
+            if(file != null)
+            {
+                var fileName = spookyRequest.Id + Path.GetExtension(file.Name);
+                BlobContainerClient blobContainerClient = _blobClient.GetBlobContainerClient("logicappholder");
+                var blobClient = blobContainerClient.GetBlobClient(fileName);
+
+                var httpHeaders = new BlobHttpHeaders()
+                {
+                    ContentType = file.ContentType
+                };
+                await blobClient.UploadAsync(file.OpenReadStream(),httpHeaders);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
